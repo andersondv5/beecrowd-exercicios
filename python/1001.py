@@ -1,5 +1,7 @@
-n = 3.14159
-raio = (float(input())) 
-area = n * raio ** 2
+# Extremamente Básico
+A = int(input())
+B = int(input())
 
-print(f"A={area:.4f}")
+X = A + B
+
+print(f"X = {X}")

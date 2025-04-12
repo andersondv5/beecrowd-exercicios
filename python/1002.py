@@ -1,6 +1,7 @@
-num_1 = int(input(" "))
-num_2 = int(input(" "))
+# Área do Círculo
 
-SOMA = num_1 + num_2
+n = 3.14159
+raio = (float(input())) 
+area = n * raio ** 2
 
-print(f"SOMA={SOMA}")
+print(f"A={area:.4f}")

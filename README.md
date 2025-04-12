@@ -12,7 +12,7 @@ Sinta-se à vontade para dar sugestões, corrigir erros ou contribuir com mais s
 - [x] [1000](python/1000.py)
 - [x] [1001](python/1001.py)
 - [x] [1002](python/1002.py)
-- [ ] 1003
+- [x] [1003](python/1003.py)
 - [ ] 1004
 - [ ] 1005
 - [ ] 1006
