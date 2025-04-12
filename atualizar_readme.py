@@ -44,7 +44,7 @@ for i in range(max(len(coluna1), len(coluna2))):
     linhas.append(f"| {gerar_link(c1)} | {gerar_link(c2)} |")
 
 # Cabeçalho da tabela
-cabecalho = "| Lista 1 | Lista 2 |\n|-------------|-------------|"
+cabecalho = "| Exercícios - Lista 1 | Exercícios - Lista 1 |\n|-------------|-------------|"
 tabela = cabecalho + "\n" + "\n".join(linhas)
 
 # Atualiza apenas a parte entre os marcadores no README
