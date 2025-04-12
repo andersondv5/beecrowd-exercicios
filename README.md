@@ -1,10 +1,6 @@
-# 📚 Exercícios Beecrowd
+# 📚 Projeto Beecrowd - Exercícios Resolvidos
 
-Este repositório contém os exercícios resolvidos da plataforma Beecrowd. Aqui você pode acompanhar meu progresso e evolução na resolução dos desafios. Eu estou estudando programação desde 2023 e reforçando os alicerces da lógica de programação, focando especialmente na prática de Python. 
-
-<br>
-
-Sinta-se à vontade para dar sugestões, corrigir erros ou contribuir com mais soluções!
+Bem-vindo ao meu repositório de exercícios resolvidos do Beecrowd. Aqui, estou praticando minha lógica de programação e utilizando Python para resolver os desafios.
 
 ---
 
@@ -25,6 +21,14 @@ Sinta-se à vontade para dar sugestões, corrigir erros ou contribuir com mais s
 <!-- fim-progresso -->
 
 ---
+
+## 💻 Script de Atualização do README
+
+Este repositório contém um script Python automatizado (`atualizar_readme.py`) que atualiza a lista de exercícios no `README.md` conforme eu adiciono novos arquivos de exercício.
+
+**Clique no link abaixo para ver o código do script que automatiza a atualização do `README.md`:**
+
+[Ver Código do Script](./atualizar_readme.py)
 
 ## 💡 Sobre o Repositório
 
