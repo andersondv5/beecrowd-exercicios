@@ -14,7 +14,7 @@ Bem-vindo ao meu repositório de exercícios resolvidos do Beecrowd. Aqui, estou
 | [1002](./python/1002.py) | <span style='color:gray'>1015</span> |
 | [1003](./python/1003.py) | <span style='color:gray'>1016</span> |
 | [1004](./python/1004.py) | <span style='color:gray'>1017</span> |
-| <span style='color:gray'>1005</span> | <span style='color:gray'>1018</span> |
+| [1005](./python/1005.py) | <span style='color:gray'>1018</span> |
 | <span style='color:gray'>1006</span> | <span style='color:gray'>1019</span> |
 | <span style='color:gray'>1007</span> | <span style='color:gray'>1020</span> |
 | <span style='color:gray'>1008</span> | <span style='color:gray'>1021</span> |
