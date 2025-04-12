@@ -7,9 +7,9 @@ Este repositório contém os exercícios resolvidos da plataforma Beecrowd. Aqui
 ## ✅ Progresso
 
 <!-- inicio-progresso -->
-- [x] 1000
-- [x] 1001
-- [x] 1002
+- [x] [1000](Python/1000.py)
+- [x] [1001](Python/1001.py)
+- [x] [1002](Python/1002.py)
 - [ ] 1003
 - [ ] 1004
 - [ ] 1005
