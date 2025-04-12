@@ -2,20 +2,18 @@
 
 import os
 
-# caminhos importantes
+# Caminhos importantes
 pasta_exercicios = "python"
 readme_path = "README.md"
 inicio = "<!-- inicio-progresso -->"
 fim = "<!-- fim-progresso -->"
 
-# total de exercícios a acompanhar
+# Total de exercícios a acompanhar
 numero_inicial = 1000
-numero_final = 1010
+numero_final = 1021
 
-# lê os arquivos existentes e extrai os números resolvidos
+# Lê os arquivos existentes e extrai os números resolvidos
 resolvidos = set()
-
-# lê os arquivos da pasta e pega apenas os números válidos
 for nome in os.listdir(pasta_exercicios):
     if nome.endswith(".py"):
         try:
@@ -24,33 +22,46 @@ for nome in os.listdir(pasta_exercicios):
         except ValueError:
             continue
 
-# gera a lista de progresso com links para os resolvidos
-progresso = []
-for numero in range(numero_inicial, numero_final + 1):
-    if numero in resolvidos:
-        progresso.append(f"- [x] [{numero}]({pasta_exercicios}/{numero}.py)")
-    else:
-        progresso.append(f"- [ ] {numero}")
+# Divide os números em dois blocos para formar as colunas
+metade = (numero_final - numero_inicial + 1) // 2 + 1
+coluna1 = list(range(numero_inicial, numero_inicial + metade))
+coluna2 = list(range(numero_inicial + metade, numero_final + 1))
 
-# junta tudo num bloco de texto
-progresso_texto = "\n".join(progresso)
+# Gera as linhas da tabela
+linhas = []
+for i in range(max(len(coluna1), len(coluna2))):
+    c1 = coluna1[i] if i < len(coluna1) else ""
+    c2 = coluna2[i] if i < len(coluna2) else ""
 
-# lê o conteúdo atual do README
+    def gerar_link(n):
+        if n == "":
+            return ""
+        if n in resolvidos:
+            return f"[{n}](./{pasta_exercicios}/{n}.py)"
+        else:
+            return f"<span style='color:gray'>{n}</span>"
+
+    linhas.append(f"| {gerar_link(c1)} | {gerar_link(c2)} |")
+
+# Cabeçalho da tabela
+cabecalho = "| Exercício 1 | Exercício 2 |\n|-------------|-------------|"
+tabela = cabecalho + "\n" + "\n".join(linhas)
+
+# Atualiza apenas a parte entre os marcadores no README
 with open(readme_path, "r", encoding="utf-8") as f:
     conteudo = f.read()
 
-# atualiza apenas a parte entre os marcadores
 novo_conteudo = (
     conteudo.split(inicio)[0]
     + inicio
-    + "\n" + progresso_texto + "\n"
+    + "\n" + tabela + "\n"
     + fim
     + conteudo.split(fim)[1]
 )
 
-# escreve de volta no README.md
 with open(readme_path, "w", encoding="utf-8") as f:
     f.write(novo_conteudo)
 
-print("✅ README.md atualizado com sucesso!")
+print("✅ README.md atualizado com tabela de progresso!")
+
 

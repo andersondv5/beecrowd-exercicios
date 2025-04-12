@@ -7,17 +7,20 @@ Bem-vindo ao meu repositório de exercícios resolvidos do Beecrowd. Aqui, estou
 ## ✅ Progresso
 
 <!-- inicio-progresso -->
-- [x] [1000](python/1000.py)
-- [x] [1001](python/1001.py)
-- [x] [1002](python/1002.py)
-- [x] [1003](python/1003.py)
-- [x] [1004](python/1004.py)
-- [ ] 1005
-- [ ] 1006
-- [ ] 1007
-- [ ] 1008
-- [ ] 1009
-- [ ] 1010
+| Exercício 1 | Exercício 2 |
+|-------------|-------------|
+| [1000](./python/1000.py) | <span style='color:gray'>1012</span> |
+| [1001](./python/1001.py) | <span style='color:gray'>1013</span> |
+| [1002](./python/1002.py) | <span style='color:gray'>1014</span> |
+| [1003](./python/1003.py) | <span style='color:gray'>1015</span> |
+| [1004](./python/1004.py) | <span style='color:gray'>1016</span> |
+| <span style='color:gray'>1005</span> | <span style='color:gray'>1017</span> |
+| <span style='color:gray'>1006</span> | <span style='color:gray'>1018</span> |
+| <span style='color:gray'>1007</span> | <span style='color:gray'>1019</span> |
+| <span style='color:gray'>1008</span> | <span style='color:gray'>1020</span> |
+| <span style='color:gray'>1009</span> | <span style='color:gray'>1021</span> |
+| <span style='color:gray'>1010</span> |  |
+| <span style='color:gray'>1011</span> |  |
 <!-- fim-progresso -->
 
 ---
