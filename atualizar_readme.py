@@ -24,11 +24,13 @@ for nome in os.listdir(pasta_exercicios):
         except ValueError:
             continue
 
-# gera a lista de progresso com [x] ou [ ]
+# gera a lista de progresso com links para os resolvidos
 progresso = []
 for numero in range(numero_inicial, numero_final + 1):
-    check = "x" if numero in resolvidos else " "
-    progresso.append(f"- [{check}] {numero}")
+    if numero in resolvidos:
+        progresso.append(f"- [x] [{numero}]({pasta_exercicios}/{numero}.py)")
+    else:
+        progresso.append(f"- [ ] {numero}")
 
 # junta tudo num bloco de texto
 progresso_texto = "\n".join(progresso)
