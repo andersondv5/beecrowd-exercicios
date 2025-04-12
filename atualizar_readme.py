@@ -1,55 +1,60 @@
 # script para atualizar automaticamente a lista de exercícios no README do repositório à medida que crio novos arquivos.py
 
 import os
+import re
 
-# caminhos importantes
-pasta_exercicios = "python"
-readme_path = "README.md"
-inicio = "<!-- inicio-progresso -->"
-fim = "<!-- fim-progresso -->"
+CAMINHO_PASTA = "python"
+CAMINHO_README = "README.md"
 
-# total de exercícios a acompanhar
-numero_inicial = 1000
-numero_final = 1010
-
-# lê os arquivos existentes e extrai os números resolvidos
-resolvidos = set()
-
-# lê os arquivos da pasta e pega apenas os números válidos
-for nome in os.listdir(pasta_exercicios):
-    if nome.endswith(".py"):
-        try:
-            numero = int(nome.split(".")[0])
-            resolvidos.add(numero)
-        except ValueError:
-            continue
-
-# gera a lista de progresso com links para os resolvidos
-progresso = []
-for numero in range(numero_inicial, numero_final + 1):
-    if numero in resolvidos:
-        progresso.append(f"- [x] [{numero}]({pasta_exercicios}/{numero}.py)")
+def gerar_link(numero):
+    caminho_arquivo = os.path.join(CAMINHO_PASTA, f"{numero}.py")
+    if os.path.isfile(caminho_arquivo):
+        return f"[{numero}](./{CAMINHO_PASTA}/{numero}.py)"
     else:
-        progresso.append(f"- [ ] {numero}")
+        return f"`{numero}`"
 
-# junta tudo num bloco de texto
-progresso_texto = "\n".join(progresso)
+def agrupar_blocos(inicio, fim):
+    todos_links = [gerar_link(i) for i in range(inicio, fim + 1)]
 
-# lê o conteúdo atual do README
-with open(readme_path, "r", encoding="utf-8") as f:
-    conteudo = f.read()
+    blocos = [todos_links[i:i+12] for i in range(0, len(todos_links), 12)]
 
-# atualiza apenas a parte entre os marcadores
-novo_conteudo = (
-    conteudo.split(inicio)[0]
-    + inicio
-    + "\n" + progresso_texto + "\n"
-    + fim
-    + conteudo.split(fim)[1]
-)
+    linhas = []
+    for bloco in blocos:
+        while len(bloco) < 12:
+            bloco.append("`----`")
+        linhas.append(bloco)
 
-# escreve de volta no README.md
-with open(readme_path, "w", encoding="utf-8") as f:
-    f.write(novo_conteudo)
+    resultado = []
 
-print("✅ README.md atualizado com sucesso!")
+    for i in range(0, len(linhas), 2):
+        bloco1 = linhas[i]
+        bloco2 = linhas[i+1] if i + 1 < len(linhas) else ["`----`"] * 12
+
+        titulo_inicio = int(re.search(r"\d+", bloco1[0]).group()) if re.search(r"\d+", bloco1[0]) else "----"
+        titulo_fim = int(re.search(r"\d+", bloco1[-1]).group()) if re.search(r"\d+", bloco1[-1]) else "----"
+        titulo2_inicio = int(re.search(r"\d+", bloco2[0]).group()) if re.search(r"\d+", bloco2[0]) else "----"
+        titulo2_fim = int(re.search(r"\d+", bloco2[-1]).group()) if re.search(r"\d+", bloco2[-1]) else "----"
+
+        resultado.append(f"### Exercícios {titulo_inicio:04}-{titulo_fim:04} / {titulo2_inicio:04}-{titulo2_fim:04}")
+        resultado.append(f"| {' | '.join(bloco1)} |  | {' | '.join(bloco2)} |")
+        resultado.append("|" + "------------------------|" * 13)
+
+    return "\n".join(resultado)
+
+def atualizar_readme():
+    with open(CAMINHO_README, "r", encoding="utf-8") as arquivo:
+        conteudo = arquivo.read()
+
+    padrao = r"(<!-- inicio-progresso -->)(.*?)(<!-- fim-progresso -->)"
+    novo_conteudo = gerar_blocos_progresso()
+    novo_texto = re.sub(padrao, rf"\1\n{novo_conteudo}\n\3", conteudo, flags=re.DOTALL)
+
+    with open(CAMINHO_README, "w", encoding="utf-8") as arquivo:
+        arquivo.write(novo_texto)
+
+def gerar_blocos_progresso():
+    return agrupar_blocos(1000, 1047)
+
+if __name__ == "__main__":
+    atualizar_readme()
+    print("✅ README.md atualizado com sucesso!")
