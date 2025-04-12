@@ -11,7 +11,7 @@ Bem-vindo ao meu repositório de exercícios resolvidos do Beecrowd. Aqui, estou
 - [x] [1001](python/1001.py)
 - [x] [1002](python/1002.py)
 - [x] [1003](python/1003.py)
-- [ ] 1004
+- [x] [1004](python/1004.py)
 - [ ] 1005
 - [ ] 1006
 - [ ] 1007
