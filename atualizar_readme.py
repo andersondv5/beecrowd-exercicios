@@ -3,7 +3,7 @@
 import os
 
 # caminhos importantes
-pasta_exercicios = "Python"
+pasta_exercicios = "python"
 readme_path = "README.md"
 inicio = "<!-- inicio-progresso -->"
 fim = "<!-- fim-progresso -->"
