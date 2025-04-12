@@ -7,7 +7,7 @@ Bem-vindo ao meu repositório de exercícios resolvidos do Beecrowd. Aqui, estou
 ## ✅ Progresso
 
 <!-- inicio-progresso -->
-| Exercícios - Lista 1 | Exercícios - Lista 1 |
+| Exercícios - Lista 1 | Exercícios - Lista 2 |
 |-------------|-------------|
 | [1000](./python/1000.py) | <span style='color:gray'>1013</span> |
 | [1001](./python/1001.py) | <span style='color:gray'>1014</span> |
