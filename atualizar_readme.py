@@ -1,43 +1,45 @@
+# script para atualizar automaticamente a lista de exercícios no README do repositório à medida que crio novos arquivos.py
+
 import os
 
-# Caminhos importantes
+# caminhos importantes
 pasta_exercicios = "Python"
 readme_path = "README.md"
 inicio = "<!-- inicio-progresso -->"
 fim = "<!-- fim-progresso -->"
 
-# Total de exercícios a acompanhar (ajuste se quiser mais ou menos)
-numero_inicial = 1001
+# total de exercícios a acompanhar
+numero_inicial = 1000
 numero_final = 1010
 
-# Lê os arquivos existentes e extrai os números resolvidos
+# lê os arquivos existentes e extrai os números resolvidos
 resolvidos = set()
 
-# Lê os arquivos da pasta e pega apenas os números válidos
+# lê os arquivos da pasta e pega apenas os números válidos
 for nome in os.listdir(pasta_exercicios):
     if nome.endswith(".py"):
         try:
-            # Pega a parte antes do ponto para garantir que seja um número
             numero = int(nome.split(".")[0])
             resolvidos.add(numero)
         except ValueError:
-            # Caso o arquivo não tenha o nome esperado (não seja um número), ignora
             continue
 
-# Gera a lista de progresso com [x] ou [ ]
+# gera a lista de progresso com links para os resolvidos
 progresso = []
 for numero in range(numero_inicial, numero_final + 1):
-    check = "x" if numero in resolvidos else " "
-    progresso.append(f"- [{check}] {numero}")
+    if numero in resolvidos:
+        progresso.append(f"- [x] [{numero}]({pasta_exercicios}/{numero}.py)")
+    else:
+        progresso.append(f"- [ ] {numero}")
 
-# Junta tudo num bloco de texto
+# junta tudo num bloco de texto
 progresso_texto = "\n".join(progresso)
 
-# Lê o conteúdo atual do README
+# lê o conteúdo atual do README
 with open(readme_path, "r", encoding="utf-8") as f:
     conteudo = f.read()
 
-# Atualiza apenas a parte entre os marcadores
+# atualiza apenas a parte entre os marcadores
 novo_conteudo = (
     conteudo.split(inicio)[0]
     + inicio
@@ -46,8 +48,9 @@ novo_conteudo = (
     + conteudo.split(fim)[1]
 )
 
-# Escreve de volta no README.md
+# escreve de volta no README.md
 with open(readme_path, "w", encoding="utf-8") as f:
     f.write(novo_conteudo)
 
 print("✅ README.md atualizado com sucesso!")
+

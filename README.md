@@ -7,9 +7,10 @@ Bem-vindo ao meu repositório de exercícios resolvidos do Beecrowd. Aqui, estou
 ## ✅ Progresso
 
 <!-- inicio-progresso -->
-- [x] 1001
-- [x] 1002
-- [x] 1003
+- [x] [1000](Python/1000.py)
+- [x] [1001](Python/1001.py)
+- [x] [1002](Python/1002.py)
+- [x] [1003](Python/1003.py)
 - [ ] 1004
 - [ ] 1005
 - [ ] 1006
