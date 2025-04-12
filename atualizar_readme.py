@@ -10,7 +10,7 @@ fim = "<!-- fim-progresso -->"
 
 # Total de exercícios a acompanhar
 numero_inicial = 1000
-numero_final = 1021
+numero_final = 1023
 
 # Lê os arquivos existentes e extrai os números resolvidos
 resolvidos = set()
@@ -44,7 +44,7 @@ for i in range(max(len(coluna1), len(coluna2))):
     linhas.append(f"| {gerar_link(c1)} | {gerar_link(c2)} |")
 
 # Cabeçalho da tabela
-cabecalho = "| Exercício 1 | Exercício 2 |\n|-------------|-------------|"
+cabecalho = "| Lista 1 | Lista 2 |\n|-------------|-------------|"
 tabela = cabecalho + "\n" + "\n".join(linhas)
 
 # Atualiza apenas a parte entre os marcadores no README
@@ -62,6 +62,6 @@ novo_conteudo = (
 with open(readme_path, "w", encoding="utf-8") as f:
     f.write(novo_conteudo)
 
-print("✅ README.md atualizado com tabela de progresso!")
+print("✅ README.md atualizado com sucesso!")
 
 
