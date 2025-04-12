@@ -1,7 +1,9 @@
 # 📚 Exercícios Beecrowd
 
 Este repositório contém os exercícios resolvidos da plataforma Beecrowd. Aqui você pode acompanhar meu progresso e evolução na resolução dos desafios. Eu estou estudando programação desde 2023 e reforçando os alicerces da lógica de programação, focando especialmente na prática de Python. 
+
 <br>
+
 Sinta-se à vontade para dar sugestões, corrigir erros ou contribuir com mais soluções!
 
 ---
